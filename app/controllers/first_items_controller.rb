@@ -1,0 +1,2 @@
+class FirstItemsController < ApplicationController
+end

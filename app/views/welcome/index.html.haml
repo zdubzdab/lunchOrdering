@@ -1,0 +1,13 @@
+- if user_signed_in?
+  %h1.welcome
+  / = current_user.name,   Welcome to "LunchOrdering"
+  %h4
+    %button.button#log_in= link_to 'Home',  user_session_path
+    %button.button#sign_up= link_to 'Sign out', destroy_user_session_path, method: :delete
+- else
+  %h1.welcome 
+    Welcome to "LunchOrdering" 
+    %br
+  %button.button#log_in= link_to 'Log in', new_user_session_path
+  %button.button#sign_up= link_to 'Sign up', new_user_registration_path
+

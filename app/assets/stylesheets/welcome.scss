@@ -1,0 +1,31 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.button {
+  margin: 10px;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 26px;
+  font-color: Black;
+/* border-style:solid;*/
+  background: #FF8000;
+  border: White;
+  height: 60px;
+  width: 180px;
+  }
+#log_in {
+  position:relative;
+    left:31%;
+    top:150px;
+  margin-bottom: 490px;
+}
+#sign_up {
+  position:relative;
+    left:31%;
+    top:150px;
+}
+.welcome {
+  position:relative;
+    top:100px;
+  color: #0071B5;
+}

@@ -1,0 +1,2 @@
+class SecondItemsController < ApplicationController
+end

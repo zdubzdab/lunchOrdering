@@ -1,0 +1,9 @@
+%p
+  %strong Name:
+  = @day.name
+%p
+  %strong Starts at:
+  = @day.starts_at
+= link_to 'Edit', edit_day_path(@day)
+|
+= link_to 'Back', days_path
