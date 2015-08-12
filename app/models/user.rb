@@ -5,6 +5,14 @@ class User < ActiveRecord::Base
   has_many :first_items, through: :orders
   has_many :second_items, through: :orders
   has_many :drink_items, through: :orders
+  has_many :days do
+
+    def today
+      where(:created_at => (Time.zone.now.beginning_of_day..Time.zone.now))
+    end
+
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810151505) do
+ActiveRecord::Schema.define(version: 20150811154708) do
 
   create_table "days", force: :cascade do |t|
     t.string   "name"
@@ -38,14 +38,20 @@ ActiveRecord::Schema.define(version: 20150810151505) do
     t.decimal  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "day_id"
   end
+
+  add_index "drinks", ["day_id"], name: "index_drinks_on_day_id"
 
   create_table "first_courses", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "day_id"
   end
+
+  add_index "first_courses", ["day_id"], name: "index_first_courses_on_day_id"
 
   create_table "first_items", force: :cascade do |t|
     t.integer  "first_course_id"
@@ -72,7 +78,10 @@ ActiveRecord::Schema.define(version: 20150810151505) do
     t.decimal  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "day_id"
   end
+
+  add_index "second_courses", ["day_id"], name: "index_second_courses_on_day_id"
 
   create_table "second_items", force: :cascade do |t|
     t.integer  "second_course_id"

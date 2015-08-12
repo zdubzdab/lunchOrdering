@@ -1,0 +1,6 @@
+%p
+  = f.input :name, placeholder: 'Second course', rows: 2, label: 'Second course'
+  = f.input :price, placeholder: 'Price', rows: 2, label: 'Second course price'
+%p.check_box_destroy
+  = f.check_box :_destroy
+  = f.label :_destroy, "Remove second course"

@@ -1,0 +1,6 @@
+%p
+  = f.input :name, placeholder: 'Drink', rows: 2, label: 'Drink'
+  = f.input :price, placeholder: 'Price', rows: 2, label: 'Drink price'
+%p.check_box_destroy
+  = f.check_box :_destroy
+  = f.label :_destroy, "Remove drink"

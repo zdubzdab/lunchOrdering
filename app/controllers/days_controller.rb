@@ -1,20 +1,22 @@
 class DaysController < ApplicationController
   before_action :set_day, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  # respond_to :html
 
   def index
     @days = Day.all
-    respond_with(@days)
+
   end
 
   def show
-    respond_with(@day)
+
   end
 
   def new
     @day = Day.new
-    respond_with(@day)
+    2.times {@day.first_courses.build}
+    2.times {@day.second_courses.build}
+    2.times {@day.drinks.build}
   end
 
   def edit
@@ -22,18 +24,30 @@ class DaysController < ApplicationController
 
   def create
     @day = Day.new(day_params)
-    @day.save
-    respond_with(@day)
+    @day.user = current_user
+    respond_to do |format|
+      if @day.save
+        format.js
+        format.html { redirect_to days_path }
+      else
+        format.html { render partial: "form" }
+        format.js
+      end
+    end
   end
 
   def update
-    @day.update(day_params)
-    respond_with(@day)
+    
+    if @day.update(day_params)
+      redirect_to days_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
     @day.destroy
-    respond_with(@day)
+
   end
 
   private
@@ -42,6 +56,6 @@ class DaysController < ApplicationController
     end
 
     def day_params
-      params.require(:day).permit(:name, :starts_at)
+      params.require(:day).permit(:name, :starts_at, :user_id, first_courses_attributes: [:id, :name, :price, :_destroy], second_courses_attributes: [:id, :name, :price, :_destroy], drinks_attributes: [:id, :name, :price, :_destroy])
     end
 end

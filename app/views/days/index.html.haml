@@ -22,4 +22,18 @@
   - days.each do |day|
     %div
       = day.name
+      %p First courses
+      %ol
+        - for first_course in day.first_courses
+          %li= first_course.name
+      %p Second courses
+      %ol
+        - for second_course in day.second_courses
+          %li= second_course.name
+
+      %p Drinks
+      %ol
+        - for drink in day.drinks
+          %li= drink.name
       = link_to 'Show', day_path(day)
+

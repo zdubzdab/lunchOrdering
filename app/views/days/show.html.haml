@@ -4,6 +4,22 @@
 %p
   %strong Starts at:
   = @day.starts_at
+
+%p First courses
+%ol
+  - for first_course in @day.first_courses
+    %li= first_course.name
+
+%p Second courses
+%ol
+  - for second_course in @day.second_courses
+    %li= second_course.name
+
+%p Drinks
+%ol
+  - for drink in @day.drinks
+    %li= drink.name
+
 = link_to 'Edit', edit_day_path(@day)
 |
 = link_to 'Back', days_path

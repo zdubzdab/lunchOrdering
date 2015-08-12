@@ -30,6 +30,7 @@ gem "haml-rails", "~> 0.9"
 gem "simple_calendar", "~> 1.1.0"
 gem "cancan"
 gem 'quiet_assets', group: :development
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
