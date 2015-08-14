@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
-  # resources :drink_items
+  resources :orders
 
-  # resources :second_items
+  resources :drink_items
 
-  # resources :first_items
+  resources :second_items
+
+  resources :first_items
     resources :first_courses, :only => [:create]
     resources :second_courses, :only => [:create]
     resources :drinks, :only => [:create]
 
   resources :days
 
-  resources :orders
+  resources :carts
 
   # match '/days/new',    to: 'days#create',    via:  [:post]
 

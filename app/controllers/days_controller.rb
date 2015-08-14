@@ -1,5 +1,7 @@
 class DaysController < ApplicationController
   before_action :set_day, only: [:show, :edit, :update, :destroy]
+    include CurrentCart
+  before_action :set_cart, only: [:create]
 
   # respond_to :html
 

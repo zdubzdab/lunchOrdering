@@ -4,3 +4,45 @@
 .calendar-header {
   background: #FFFFFF;
 }
+
+table-bordered {
+  width: 100%;
+  display: block;
+  margin: 1rem auto;
+  table {
+      width: 120%;
+  }
+  td, th {
+      padding: 2rem 2%;
+      border: 1px solid #E9E9E9;
+  }
+}
+
+.menu {
+display: none
+}
+
+  #side {
+    float: left;
+    padding: 1em 2em;
+    width: 16em;
+    background: #FFAD5C;
+
+    form, div {
+      display: inline;
+    }
+    input {
+      font-size: small;
+    }
+    #cart {
+      font-size: smaller;
+      position:relative;
+        left:7%;
+
+      table {
+        border-top:    1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
+    }
+    }

@@ -1,0 +1,5 @@
+<ul>
+<% @cart.first_items.each do |item| %>
+  <li><%= item.first_course.name %></li>
+<% end %>
+</ul>

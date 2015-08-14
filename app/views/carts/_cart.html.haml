@@ -1,0 +1,15 @@
+#table_and_buttons
+  %h4 Your Cart
+  - if @cart.first_items.any?
+    %table.cart_table
+      = render(cart.first_items)
+      = render(cart.second_items)
+      = render(cart.drink_items)
+      %tr.total_line
+        %td Total
+        %td.total_cell
+          = number_to_currency(@cart.total_price)
+    %br/
+  - else
+    %h4 is empty.
+  %br/

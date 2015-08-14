@@ -1,3 +1,13 @@
+.col-md-8
+  %div#side
+    %h4 cart
+    - if @cart
+      %div#cart
+        = render @cart
+
+- if @cart
+  - @cart.first_items.each do |item| 
+    %li= item.first_course.name 
 %h1 Listing days
 %table
   %thead
@@ -17,23 +27,35 @@
         %td= link_to 'Destroy', day, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'New Day', new_day_path
-= week_calendar day_names: "date.day_names", table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: ->(start_date, current_calendar_date) { {class: "calendar-date", data: {day: current_calendar_date}} }, events: @days do |date, days|
-  = date
-  - days.each do |day|
-    %div
-      = day.name
-      %p First courses
-      %ol
-        - for first_course in day.first_courses
-          %li= first_course.name
-      %p Second courses
-      %ol
-        - for second_course in day.second_courses
-          %li= second_course.name
+.col-md-8
+  = week_calendar day_names: "date.day_names", table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: week_calendar_td_options, events: @days do |date, days|
+    = date
+    - days.each do |day|
+      = link_to "Show menu", "#", id: "menu_link" 
+      %div.menu
+        = day.name
+        %p First courses
+        %ol
+          - for first_course in day.first_courses
+            %li 
+              = first_course.name 
+              = sprintf("$%0.02f", first_course.price)
+              = button_to 'Order', first_items_path(first_course_id: first_course), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+        %p Second courses
+        %ol
+          - for second_course in day.second_courses
+            %li
+              = second_course.name
+              = sprintf("$%0.02f", second_course.price)
+              = button_to 'Order', second_items_path(second_course_id: second_course), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+        %p Drinks
+        %ol
+          - for drink in day.drinks
+            %li
+              = drink.name
+              = sprintf("$%0.02f", drink.price)
+              = button_to 'Order', drink_items_path(drink_id: drink), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
 
-      %p Drinks
-      %ol
-        - for drink in day.drinks
-          %li= drink.name
-      = link_to 'Show', day_path(day)
 
+
+%div#cart
