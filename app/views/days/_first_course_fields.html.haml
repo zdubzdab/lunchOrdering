@@ -1,9 +1,10 @@
-%p
-  = f.input :name, placeholder: 'First course', rows: 2, label: 'First course'
-  = f.input :price, placeholder: 'Price', rows: 2, label: 'First course price'
-%p.check_box_destroy
-  = f.check_box :_destroy
-  = f.label :_destroy, "Remove first course"
+%p#first_course_tab
+  = f.label :name, 'First course'
+  = f.text_field :name, placeholder: 'First course', rows: 2
+  = f.label :price, 'First course price'
+  = f.text_field :price, placeholder: 'Price', rows: 2
+  = link_to_remove_fields "Remove", f
+
 
 
 

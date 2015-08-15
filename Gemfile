@@ -31,6 +31,9 @@ gem "simple_calendar", "~> 1.1.0"
 gem "cancan"
 gem 'quiet_assets', group: :development
 gem 'simple_form'
+gem 'nested_form_fields'
+gem "jquery-turbolinks"#щоб нормально працював js(тільки заходиш на ст. js не працював треба було перезагружати)
+gem 'will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

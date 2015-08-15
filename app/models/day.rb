@@ -8,9 +8,9 @@ class Day < ActiveRecord::Base
   has_many :drinks, dependent: :destroy
   belongs_to :user
 
-  accepts_nested_attributes_for :first_courses, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
-  accepts_nested_attributes_for :second_courses, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
-  accepts_nested_attributes_for :drinks, reject_if: lambda { |a| a[:name].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :first_courses, allow_destroy: true
+  accepts_nested_attributes_for :second_courses, allow_destroy: true
+  accepts_nested_attributes_for :drinks, allow_destroy: true
 
   validate :user_quota, :on => :create
 

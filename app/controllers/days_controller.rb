@@ -16,9 +16,9 @@ class DaysController < ApplicationController
 
   def new
     @day = Day.new
-    2.times {@day.first_courses.build}
-    2.times {@day.second_courses.build}
-    2.times {@day.drinks.build}
+    @day.first_courses.build
+    @day.second_courses.build
+    @day.drinks.build
   end
 
   def edit
@@ -32,7 +32,7 @@ class DaysController < ApplicationController
         format.js
         format.html { redirect_to days_path }
       else
-        format.html { render partial: "form" }
+        format.html { render :new }
         format.js
       end
     end

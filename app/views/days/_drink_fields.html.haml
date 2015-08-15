@@ -1,6 +1,6 @@
-%p
-  = f.input :name, placeholder: 'Drink', rows: 2, label: 'Drink'
-  = f.input :price, placeholder: 'Price', rows: 2, label: 'Drink price'
-%p.check_box_destroy
-  = f.check_box :_destroy
-  = f.label :_destroy, "Remove drink"
+%p#drink_tab
+  = f.label :name, 'Drink'
+  = f.text_field :name, placeholder: 'Drink', rows: 2
+  = f.label :price, 'Drink price'
+  = f.text_field :price, placeholder: 'Price', rows: 2
+  = link_to_remove_fields "Remove", f
