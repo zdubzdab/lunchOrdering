@@ -1,13 +1,6 @@
-.col-md-8
-  %div#side
-    %h4 cart
-    - if @cart
-      %div#cart
-        = render @cart
+= link_to 'person', user_root_path
+%br/
 
-- if @cart
-  - @cart.first_items.each do |item| 
-    %li= item.first_course.name 
 %h1 Listing days
 %table
   %thead
@@ -22,16 +15,26 @@
       %tr
         %td= day.name
         %td= day.starts_at
-        %td= link_to 'Show', day
-        %td= link_to 'Edit', edit_day_path(day)
-        %td= link_to 'Destroy', day, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Show', [:admin, day]
+        %td= link_to 'Edit', [:edit, :admin, day]
+        %td= link_to 'Destroy', [:admin, day], method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Day', new_day_path
-.col-md-8
+
+%aside.col-md-4
+  %div#side
+    = link_to 'New Day', new_admin_day_path
+    = link_to 'Users', persons_index_path
+    %h4 cart
+    - if @cart
+      %div#cart
+        = render @cart
+
+.col-md-8#calendar_table
+  %h3 Listing days
   = week_calendar day_names: "date.day_names", table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: week_calendar_td_options, events: @days do |date, days|
     = date
     - days.each do |day|
-      = link_to "Show menu", "#", id: "menu_link" 
+      = link_to "Show menu", "#", class: "menu_link" 
       %div.menu
         = day.name
         %p First courses
@@ -58,4 +61,3 @@
 
 
 
-%div#cart

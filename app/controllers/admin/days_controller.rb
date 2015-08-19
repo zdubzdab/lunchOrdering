@@ -1,4 +1,4 @@
-class DaysController < ApplicationController
+class Admin::DaysController < ApplicationController
   before_action :set_day, only: [:show, :edit, :update, :destroy]
     include CurrentCart
   before_action :set_cart, only: [:create]
@@ -30,7 +30,7 @@ class DaysController < ApplicationController
     respond_to do |format|
       if @day.save
         format.js
-        format.html { redirect_to days_path }
+        format.html { redirect_to admin_days_path }
       else
         format.html { render :new }
         format.js
@@ -39,7 +39,7 @@ class DaysController < ApplicationController
   end
 
   def update
-    
+
     if @day.update(day_params)
       redirect_to days_path
     else

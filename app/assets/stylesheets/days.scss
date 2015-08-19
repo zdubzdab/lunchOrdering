@@ -1,74 +1,37 @@
 // Place all the styles related to the days controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.calendar-header {
-  background: #FFFFFF;
-}
 
-table-bordered {
-  width: 100%;
-  display: block;
-  margin: 1rem auto;
-  table {
-      width: 120%;
-  }
-  td, th {
-      padding: 2rem 2%;
-      border: 1px solid #E9E9E9;
-  }
-}
+/*index*/
 
-.menu {
-display: none
-}
-
-  #side {
-    float: left;
-    padding: 1em 2em;
-    width: 16em;
-    background: #FFAD5C;
-
-    form, div {
-      display: inline;
-    }
-    input {
-      font-size: small;
-    }
-    #cart {
-      font-size: smaller;
-      position:relative;
-        left:7%;
-
-      table {
-        border-top:    1px dotted #595;
-        border-bottom: 1px dotted #595;
-        margin-bottom: 10px;
-      }
-    }
-    }
     /*new*/
 #h_first_courses {
   position:relative;
-    right: 455px;
+    right: 470px;
     top: 90px;
 }
 #h_second_courses {
   position:relative;
-    right: 85px;
+    right: 100px;
     top: 40px;
 }
 #h_drinks {
   position:relative;
-    right: -235px;
+    right: -220px;
     top: -10px;
 }
 #form_new_menu {
   position:relative;
     top: -100px;
-    left: 20px;
+    left: 100px;
 }
 #b_create_menu {
-  margin-top: 50px;
-  margin-bottom: 10px;
-  padding: 3px 0px;
+  margin-top: 30px;
+  margin-bottom: -40px;
+  padding: 4px 45px;
+}
+#new_day {
+  position:relative;
+    top: -50px;
+    left: -30px;
 }

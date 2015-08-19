@@ -14,6 +14,7 @@ def create
           status: :created, location: @drink_item }
     else
       format.html { render action: 'new' }
+      format.js { render js: 'alert("You can order only one drink");' }
       format.json { render json: @drink_item.errors, status: :unprocessable_entity }
     end
   end

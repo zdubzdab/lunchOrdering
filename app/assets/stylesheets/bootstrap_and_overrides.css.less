@@ -30,6 +30,7 @@
 
 body {
   background: #EBE0D6 !important;
+  overflow-x: hidden;
 }
       /*біла основа*/
 .container-fluid {
@@ -75,7 +76,7 @@ header {
     left:-10%;
 }
 
-    /*шоб не було проміжку між header and contaner*/
+/*шоб не було проміжку між header and contaner*/
 .navbar {
   margin-bottom: 0px !important;
 }
@@ -106,21 +107,25 @@ footer {
       bottom: 0; left: 0;
   }
 }
-  .zdub {
-    font-weight: bold;
-    font-size: 1.8em;
-    color: #FF8000;
-  }
-  h1, h2, h3, h4 {
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 10px 10px 10px;
-    margin: 10px;
-  }
-.form-control {
-    width: 250px;
+.zdub {
+  font-weight: bold;
+  font-size: 1.8em;
+  color: #FF8000;
 }
+h1, h2, h3, h4 {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 10px 10px 10px;
+  margin: 10px;
+}
+.form-control {
+  width: 250px;
+}
+/*other*/
 #error_explanation {
+  position:relative;
+    top: 0px;
+    left: 80px;
   width: 450px;
   border: 1px solid #0071B5;
   padding: 7px;
@@ -145,12 +150,10 @@ label {
 
 }
 input {
-  width: 210px;
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 a {
   color: #FF8000;
   font-size: 16px;
   font-weight: bold;
-
 }

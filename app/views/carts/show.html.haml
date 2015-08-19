@@ -1,0 +1,19 @@
+#table_and_buttons
+  %h4 Your Cart
+  - if @cart.first_items.any?
+    %table.cart_table
+      - @cart.first_items.each do |item|
+        %tr
+          %td= item.first_course.name
+          %td.item_price= number_to_currency(item.total_price)
+      %tr.total_line
+        %td Total
+        %td.total_cell
+          = number_to_currency(@cart.total_price)
+      = button_to 'Order', orders_path, remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+      = button_to 'Empty menu', @cart, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info"
+      = link_to 'day', admin_days_path
+    %br/
+  - else
+    %h4 is empty.
+  %br/

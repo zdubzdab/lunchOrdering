@@ -13,4 +13,5 @@ class Cart < ActiveRecord::Base
     total << drink_items.to_a.sum { |item| item.total_price }
     total.sum
   end
+
 end

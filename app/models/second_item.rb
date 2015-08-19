@@ -9,4 +9,13 @@ class SecondItem < ActiveRecord::Base
     second_course.price
   end
 
+  validate :order_should_has_one_second_item, on: :create
+
+  private 
+    def order_should_has_one_second_item
+      if cart.second_items.count >= 1
+        errors.add(:base, "You can order only one first course")
+      end
+    end
+
 end

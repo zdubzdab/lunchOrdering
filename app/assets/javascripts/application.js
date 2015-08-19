@@ -10,8 +10,8 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require nested_form_fields
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
@@ -19,11 +19,11 @@
 
 function remove_fields(link) {
   $(link).prevAll("input[type=hidden]").first().val("1");
-  $(link).closest(".fields").hide();
+  $(link).closest("#course_tab").hide();
 }
-
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")
   $(link).parent().before(content.replace(regexp, new_id));
 }
+

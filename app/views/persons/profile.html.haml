@@ -1,6 +1,54 @@
-- if user_signed_in?
-  %span
-    Здравствуйте, #{current_user.email}
-  = link_to 'Выйти', destroy_user_session_path, :method => :delete
+.col-md-4#side
+  = link_to 'admin',  admin_days_path
+  - if @cart
+    %div#cart
+      = render @cart
+
+.col-md-8#today_menu
+  %h3 Today menu
+  = @current_day.name
+  %p First courses
+  %ol
+    - for first_course in @current_day.first_courses
+      = render first_course
+  %p Second courses
+  %ol
+    - for second_course in @current_day.second_courses
+      = render second_course
+  %p Drinks
+  %ol
+    - for drink in @current_day.drinks
+      = render drink
+
+.col-md-8#calendar_table
+  = link_to "#", class: "showMore" do
+    %i.fa.fa-caret-down.fa-3x
+  = link_to "#", class: "showLess" do
+    %i.fa.fa-caret-up.fa-3x
+  %h3 Listing days
+  = week_calendar day_names: "date.day_names", table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: week_calendar_td_options, events: @days do |date, days|
+    = date
+    - days.each do |day|
+      %div.menu
+        = day.name
+        %p First courses
+        %ol
+          - for first_course in day.first_courses
+            = render first_course
+        %p Second courses
+        %ol
+          - for second_course in day.second_courses
+            = render second_course
+        %p Drinks
+        %ol
+          - for drink in day.drinks
+            = render drink
+
+
+
+
+
+
+
 
 

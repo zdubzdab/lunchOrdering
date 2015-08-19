@@ -8,12 +8,13 @@ class FirstItemsController < ApplicationController
 
     respond_to do |format|
       if @first_item.save
-        format.html { redirect_to days_path }
+        format.html { redirect_to user_root_path }
         format.js {}
         format.json { render action: 'show',
             status: :created, location: @first_item }
       else
         format.html { render action: 'new' }
+        format.js { render js: 'alert("You can order only one first course");' }
         format.json { render json: @first_item.errors, status: :unprocessable_entity }
       end
     end

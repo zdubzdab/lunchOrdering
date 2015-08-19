@@ -14,6 +14,7 @@ def create
           status: :created, location: @second_item }
     else
       format.html { render action: 'new' }
+      format.js { render js: 'alert("You can order only one second course");' }
       format.json { render json: @second_item.errors, status: :unprocessable_entity }
     end
   end

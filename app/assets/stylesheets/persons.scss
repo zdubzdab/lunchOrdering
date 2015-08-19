@@ -1,3 +1,83 @@
 // Place all the styles related to the persons controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#side {
+  position:relative;
+    top: -60px;
+    left: -15px;
+  float: left;
+  padding: 2em 2em;
+  width: 20em;
+  background: #FFAD5C;
+  form, div {
+    display: inline;
+  }
+  input {
+    font-size: small;
+  }
+  #cart {
+    font-size: smaller;
+    position:relative;
+      left:7%;
+
+    table {
+      border-top:    1px dotted #595;
+      border-bottom: 1px dotted #595;
+      margin-bottom: 10px;
+    }
+  }
+  p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 18px;
+  }
+}
+.carts, #side #cart {
+  .item_price, .total_line {
+    text-align: right;
+  }
+
+  .total_line .total_cell {
+    font-weight: bold;
+    border-top: 2px solid #595;
+  }
+}
+.calendar-header {
+  background: #FFFFFF;
+}
+table-bordered {
+  width: 100%;
+  display: block;
+  margin: 1rem auto;
+  table {
+      width: 120%;
+  }
+  td, th {
+      padding: 2rem 2%;
+      border: 1px solid #E9E9E9;
+  }
+}
+.menu {
+display: none
+}
+#calendar_table {
+  position:relative;
+    right: 0px;
+    top: -100px;
+}
+#today_menu {
+  position:relative;
+    right: -20px;
+    top: -50px;
+}
+.showMore {
+  position:relative;
+    right: 0px;
+    top: 140px;
+}
+.showLess {
+  display: none;
+  position:relative;
+    right: 0px;
+    top: 100px;
+}

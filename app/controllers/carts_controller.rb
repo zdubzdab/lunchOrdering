@@ -19,4 +19,19 @@ class CartsController < ApplicationController
     end
   end
 
+  # DELETE /carts/1
+  # DELETE /carts/1.json
+  def destroy
+    @cart = Cart.find(params[:id])
+    @cart.destroy if @cart.id == session[:cart_id]
+    session[:cart_id] = nil
+    respond_to do |format|
+      format.html { redirect_to user_root_path }
+      format.js 
+      format.json { head :no_content }
+    end
+  end
+    def cart_params
+      params[:cart]
+    end
 end
