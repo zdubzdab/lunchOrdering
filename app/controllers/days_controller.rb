@@ -1,9 +1,8 @@
-class Admin::DaysController < ApplicationController
+class DaysController < ApplicationController
+  load_and_authorize_resource except: :create
   before_action :set_day, only: [:show, :edit, :update, :destroy]
     include CurrentCart
   before_action :set_cart, only: [:create]
-
-  # respond_to :html
 
   def index
     @days = Day.all
@@ -30,7 +29,7 @@ class Admin::DaysController < ApplicationController
     respond_to do |format|
       if @day.save
         format.js
-        format.html { redirect_to admin_days_path }
+        format.html { redirect_to days_path, notice: 'Menu is sucessfully created.' }
       else
         format.html { render :new }
         format.js

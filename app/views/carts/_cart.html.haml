@@ -1,5 +1,5 @@
 #table_and_buttons
-  %h4 Your Cart
+  %h4 Your Menu
   %table.cart_table
     %tr
     = render(@cart.first_items)
@@ -9,6 +9,6 @@
       %td Total
       %td.total_cell
         = number_to_currency(@cart.total_price)
-  = button_to 'Order', orders_path, remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+  = button_to 'Order', orders_path, remote: true, class: "btn btn-warning"
   = button_to 'Empty menu', @cart, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info"
 

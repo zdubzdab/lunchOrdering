@@ -1,20 +1,21 @@
-.col-md-12
+.col-md-8#users_listing
   %h3 Listing Users
   %table.table.table-bordered.table-condensed.table-striped
     %tr
       %th Name
-      %th Articles
-
-
+      %th Email
+      %th Number of orders
+      %th Registred
     - @users.each do |user|
       %tr
         %td= user.name
         %td= user.email
-
+        %td= user.orders.count
+        %td= user.created_at.strftime('%x')
 
 .pagination.pagination-centered
   %ul
     %li.active
       %span= will_paginate @users
-
-= link_to 'Back', admin_days_path
+.col-md-9
+  = link_to 'Back', days_path

@@ -31,6 +31,8 @@ class CartsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
     def cart_params
       params[:cart]
     end

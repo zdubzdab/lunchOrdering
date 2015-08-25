@@ -1,5 +1,5 @@
 class DrinkItemsController < ApplicationController
-include CurrentCart
+  include CurrentCart
 before_action :set_cart, only: [:create]
 
 def create

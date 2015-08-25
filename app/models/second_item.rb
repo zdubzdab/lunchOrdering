@@ -5,11 +5,15 @@ class SecondItem < ActiveRecord::Base
   belongs_to :day
   belongs_to :user
 
+  validate :order_should_has_one_second_item, on: :create
+
   def total_price
     second_course.price
   end
 
-  validate :order_should_has_one_second_item, on: :create
+  def pull_course_name
+    second_course.name
+  end
 
   private 
     def order_should_has_one_second_item

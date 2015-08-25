@@ -5,11 +5,15 @@ class DrinkItem < ActiveRecord::Base
   belongs_to :day
   belongs_to :user
 
+  validate :order_should_has_one_drink_item, on: :create
+
   def total_price
     drink.price
   end
 
-  validate :order_should_has_one_drink_item, on: :create
+  def pull_course_name
+    drink.name
+  end
 
   private 
     def order_should_has_one_drink_item

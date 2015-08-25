@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   belongs_to :day
 
-  def add_first_items_from_cart(cart)
+  def add_items_from_cart(cart)
     cart.first_items.each do |items|
       items.cart_id = nil
       first_items << items
@@ -20,5 +20,19 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def total_price
+    total = []
+    total << first_items.to_a.sum { |item| item.total_price }
+    total << second_items.to_a.sum { |item| item.total_price }
+    total << drink_items.to_a.sum { |item| item.total_price }
+    total.sum
+  end
+
+  def pull_course_name
+    total = []
+    total << first_items.to_a.sum { |item| item.pull_course_name }
+    total << second_items.to_a.sum { |item| item.pull_course_name }
+    total << drink_items.to_a.sum { |item| item.pull_course_name }
+  end
 
 end

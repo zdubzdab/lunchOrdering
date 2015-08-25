@@ -5,11 +5,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    current_user.admin? ? admin_days_path : persons_profile_path
+    current_user.role == "admin" ? days_path : user_root_path
   end
 
   def after_sign_out_path_for(resource_or_scope)
     root_path
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to user_root_path, :alert => "You don't have permission to do this"
   end
 
   protected

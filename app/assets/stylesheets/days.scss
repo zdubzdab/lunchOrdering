@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*index*/
-
     /*new*/
 #h_first_courses {
   position:relative;
@@ -34,4 +33,75 @@
   position:relative;
     top: -50px;
     left: -30px;
+}
+#month_calendar_table {
+  position:relative;
+    right: -200px;
+    top: -150px;
+  margin-top: 0px;
+}
+
+/* show */
+#square_a {
+  position:relative;
+    right: -370px;
+    top: -50px;
+  border: 2px solid gray;
+  width: 190px;
+  height: 130px;
+}
+#small_square_a {
+  position:relative;
+    right: -93px;
+    top: -2px;
+  border: 2px solid gray;
+  width: 80px;
+  height: 60px;
+}
+#today_number_a {
+  position:relative;
+    right: 5px;
+    top: -55px;
+  float: left;
+  margin-right: 10px;
+  font-size: 6.0em;
+  color: #FF8000;
+  padding-top: 9px;
+  font-weight: bold;
+}
+#today_letter_a {
+  position:relative;
+    right: 6px;
+    top: -3px;
+  float: left;
+  margin-right: 10px;
+  font-size: 2.2em;
+  color: #FF8000;
+  padding-top: 9px;
+  font-weight: bold;
+}
+#today_a {
+  position:relative;
+    right: 65px;
+    top: 5px;
+}
+#orders_listing {
+  position:relative;
+    right: 20px;
+    top: -80px;
+}
+#stats {
+  position:relative;
+    right: 50px;
+    top: -60px;
+}
+#menu_panel {
+  position:relative;
+    right: 0px;
+    top: -60px;
+}
+#h_menu {
+  position:relative;
+    right: 70px;
+    top: 0px;
 }

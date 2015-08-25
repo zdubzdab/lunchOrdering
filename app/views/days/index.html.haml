@@ -1,0 +1,24 @@
+%p
+  = link_to 'Create menu', new_day_path
+%p
+  = link_to 'Users',  users_index_path
+%p
+  = link_to 'Edit my profile',  edit_user_registration_path
+%p
+  = link_to 'person', user_root_path
+
+.col-md-9#month_calendar_table
+  %h3 Listing days
+  = month_calendar day_names: "date.day_names", table: {class: "table table-bordered"}, tr: {class: "calendar-row"}, td: month_calendar_td_options, events: @days do |date, days|
+    %b
+      = date.strftime("%d")
+      %br
+    - days.each do |day|
+      %p
+        = pluralize(day.orders.count, "order")
+      = link_to 'More details', day, class: "menu_link" 
+
+
+
+
+

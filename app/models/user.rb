@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
   has_many :second_items, through: :orders
   has_many :drink_items, through: :orders
   has_many :days do
-
     def today
       where(:created_at => (Time.zone.now.beginning_of_day..Time.zone.now))
     end
-
   end
+
+  Roles = [ :admin , :default ]
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   def check_to_make_admin
     # Only the first user should be made admin
     if User.count == 0
-      self.admin = true
+      self.role = 'admin'
     end
   end
 end

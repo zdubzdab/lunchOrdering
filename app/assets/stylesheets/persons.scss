@@ -6,7 +6,7 @@
     top: -60px;
     left: -15px;
   float: left;
-  padding: 2em 2em;
+  padding: 1em 2em;
   width: 20em;
   background: #FFAD5C;
   form, div {
@@ -26,10 +26,11 @@
       margin-bottom: 10px;
     }
   }
-  p, ol, ul, td {
+  b, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 15px;
   line-height: 18px;
+  text-align: center;
   }
 }
 .carts, #side #cart {
@@ -55,6 +56,7 @@ table-bordered {
   td, th {
       padding: 2rem 2%;
       border: 1px solid #E9E9E9;
+      text-align: center;
   }
 }
 .menu {
@@ -63,7 +65,8 @@ display: none
 #calendar_table {
   position:relative;
     right: 0px;
-    top: -100px;
+    top: -90px;
+  margin-top: 0px;
 }
 #today_menu {
   position:relative;
@@ -73,11 +76,66 @@ display: none
 .showMore {
   position:relative;
     right: 0px;
-    top: 140px;
+    top: 205px;
 }
 .showLess {
   display: none;
   position:relative;
     right: 0px;
-    top: 100px;
+    top: 165px;
+}
+td.day.today.current-month{
+    background: #FFFF66;
+}
+#b_add_to_cart {
+  position:relative;
+    top: -5px;
+}
+#square {
+  position:relative;
+    right: -220px;
+    top: -35px;
+  border: 2px solid gray;
+  width: 190px;
+  height: 130px;
+}
+#small_square {
+  position:relative;
+    right: -93px;
+    top: -2px;
+  border: 2px solid gray;
+  width: 80px;
+  height: 60px;
+}
+#today_number {
+  position:relative;
+    right: 5px;
+    top: -55px;
+  float: left;
+  margin-right: 10px;
+  font-size: 6.0em;
+  color: #FF8000;
+  padding-top: 9px;
+  font-weight: bold;
+}
+#today_letter {
+  position:relative;
+    right: 6px;
+    top: -3px;
+  float: left;
+  margin-right: 10px;
+  font-size: 2.2em;
+  color: #FF8000;
+  padding-top: 9px;
+  font-weight: bold;
+}
+#today {
+  position:relative;
+    right: 65px;
+    top: 5px;
+}
+#profile {
+  position:relative;
+    right: -90px;
+    top: -55px;
 }

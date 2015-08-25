@@ -17,10 +17,27 @@ class Day < ActiveRecord::Base
   extend SimpleCalendar
   has_calendar
 
+  def total_price_of_orders
+    total = []
+    total << first_items.to_a.sum { |item| item.total_price }
+    total << second_items.to_a.sum { |item| item.total_price }
+    total << drink_items.to_a.sum { |item| item.total_price }
+    total.sum
+  end
+
+  def total_price_of_today_menu
+    total = []
+    total << first_courses.to_a.sum { |item| item.price }
+    total << second_courses.to_a.sum { |item| item.price }
+    total << drinks.to_a.sum { |item| item.price }
+    total.sum
+  end
+  
   private 
     def user_quota
       if user.days.today.count >= 1
         errors.add(:base, "You can create only one menu per day")
       end
     end
+
 end

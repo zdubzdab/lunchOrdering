@@ -5,11 +5,15 @@ class FirstItem < ActiveRecord::Base
   belongs_to :day
   belongs_to :user
 
+  validate :order_should_has_one_first_item, on: :create
+
   def total_price
     first_course.price
   end
 
-  validate :order_should_has_one_first_item, on: :create
+  def pull_course_name
+    first_course.name
+  end
 
   private 
     def order_should_has_one_first_item

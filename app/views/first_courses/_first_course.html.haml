@@ -1,5 +1,6 @@
 %li 
   = first_course.name 
-  = sprintf("$%0.02f", first_course.price)
-  /- if @current_day = Day.last
-  = button_to 'Order', first_items_path(first_course_id: first_course), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+  %p
+    price:
+    = sprintf("$%0.02f", first_course.price)
+    %br

@@ -1,4 +1,5 @@
 %li
   = drink.name
-  = sprintf("$%0.02f", drink.price)
-  = button_to 'Order', drink_items_path(drink_id: drink), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+  %p
+    price:
+    = sprintf("$%0.02f", drink.price)

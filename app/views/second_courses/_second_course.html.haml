@@ -1,4 +1,6 @@
 %li
   = second_course.name
-  = sprintf("$%0.02f", second_course.price)
-  = button_to 'Order', second_items_path(second_course_id: second_course), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+  %p
+    price:
+    = sprintf("$%0.02f", second_course.price)
+    %br

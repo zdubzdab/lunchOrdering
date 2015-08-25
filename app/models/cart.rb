@@ -1,7 +1,7 @@
 class Cart < ActiveRecord::Base
-  has_many :first_items
-  has_many :second_items
-  has_many :drink_items
+  has_many :first_items, dependent: :destroy
+  has_many :second_items, dependent: :destroy
+  has_many :drink_items, dependent: :destroy
 
   belongs_to :user
   belongs_to :day
