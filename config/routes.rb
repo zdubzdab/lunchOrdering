@@ -1,19 +1,16 @@
 Rails.application.routes.draw do
 
   resources :days
-  resources :orders
-  resources :drink_items
-  resources :second_items
-  resources :first_items
-  resources :carts
-
-  get 'users/index'
-
+  resources :orders, only: [:create]
+  resources :carts, only: [:create, :destroy]
   devise_for :users
+  get 'users/index'
   get 'persons/profile', as: 'user_root'
-
-  # match 'persons/profile',    to: 'orders#create',    via:  [:post], as: 'create_cart'
-  # match 'persons/profile',    to: 'carts#destroy',    via:  [:delete], as: 'del_cart'
   root 'welcome#index'
 
+  # resources :drink_items
+  # resources :second_items
+  # resources :first_items
+  # match 'persons/profile',    to: 'orders#create',    via:  [:post], as: 'create_cart'
+  # match 'persons/profile',    to: 'carts#destroy',    via:  [:delete], as: 'del_cart'
 end

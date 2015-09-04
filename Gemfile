@@ -34,15 +34,24 @@ gem 'simple_form'
 gem 'nested_form_fields'
 gem "jquery-turbolinks"#щоб нормально працював js(тільки заходиш на ст. js не працював треба було перезагружати)
 gem 'will_paginate'
+gem 'faker'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
-  # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rspec-rails'
+  gem 'guard-rspec'
+  gem 'spork', github: 'sporkrb/spork'
+  gem 'spork-rails'
+  gem 'guard-spork'
+  gem 'childprocess'
+end
+
+group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'libnotify'
+  gem 'factory_girl_rails'
 end
 
