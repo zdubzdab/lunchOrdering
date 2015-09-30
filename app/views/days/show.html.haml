@@ -2,16 +2,13 @@
   %h4#h_menu Menu
   %b First courses
   %ol
-    - @day.first_courses.each do |first_course|
-      = render first_course
+    = render @day.first_courses
   %b Second courses
   %ol
-    - @day.second_courses.each do |second_course|
-      = render second_course
+    = render @day.second_courses
   %b Drinks
   %ol
-    - @day.drinks.each do |drink|
-      = render drink
+    = render @day.drinks
   %tr.total_line
     %td Total price
     %td.total_cell
@@ -42,13 +39,7 @@
       %th Menu
       %th Order price
       %th Time
-    - @day.orders.each do |order|
-      %tr
-        %td= order.user.name
-        %td= order.user.email
-        %td= order.pull_course_name.join(" , ")
-        %td= number_to_currency(order.total_price)
-        %td= order.created_at.strftime('%R')
+    = render @day.orders
 
 .col-md-12
   = link_to 'Back', days_path

@@ -60,7 +60,7 @@ table-bordered {
   }
 }
 .menu {
-display: none
+  display: none
 }
 #calendar_table {
   position:relative;
@@ -75,14 +75,18 @@ display: none
 }
 .showMore {
   position:relative;
-    right: 0px;
-    top: 205px;
+    right: -30px;
+    top: 0px;
+  font-weight: normal;
 }
 .showLess {
   display: none;
   position:relative;
     right: 0px;
     top: 165px;
+  &:hover::after { 
+    content: attr(data-title); 
+  }
 }
 td.day.today.current-month{
     background: #FFFF66;

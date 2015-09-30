@@ -1,0 +1,6 @@
+%tr
+  %td= order.user.name
+  %td= order.user.email
+  %td= order.pull_course_name.join(" , ")
+  %td= number_to_currency(order.total_price)
+  %td= order.created_at.strftime('%R')
