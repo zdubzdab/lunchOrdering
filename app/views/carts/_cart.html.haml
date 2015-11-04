@@ -8,7 +8,7 @@
     %tr.total_line
       %td Total
       %td.total_cell
-        = number_to_currency(@cart.total_price)
+        = number_to_currency(@cart.cart_total_price)
   = button_to 'Order', orders_path, remote: true, class: "btn btn-warning"
   = button_to 'Empty menu', @cart, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-info"
 

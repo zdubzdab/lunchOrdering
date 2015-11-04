@@ -6,16 +6,18 @@
       %th Email
       %th Number of orders
       %th Registred
+      %th Show
     - @users.each do |user|
       %tr
         %td= user.name
         %td= user.email
         %td= user.orders.count
         %td= user.created_at.strftime('%x')
-
-.pagination.pagination-centered
-  %ul
-    %li.active
-      %span= will_paginate @users
+        %td= link_to 'Show', user_path(user)
+.col-md-8
+  .pagination.pagination-centered
+    %ul
+      %li.active
+        %span= will_paginate @users
 .col-md-9
   = link_to 'Back', days_path

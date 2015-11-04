@@ -11,11 +11,11 @@ class DrinkItem < ActiveRecord::Base
     drink.price
   end
 
-  def pull_course_name
+  def pull_d_course_name
     drink.name
   end
 
-  private 
+  private
     def order_should_has_one_drink_item
       if cart.drink_items.count >= 1
         errors.add(:base, "You can order only one first course")

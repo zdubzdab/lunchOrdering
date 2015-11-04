@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
     include CurrentCart
-  before_action :set_cart, only: [:new, :create]
+  before_action :set_cart, only: [:create]
 
   # POST /orders
   # POST /orders.json
@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
             'Thank you for your order.' }
         format.json { render action: 'show', status: :created, location: @order }
       else
+        format.js { render js: 'alert("Your order should has at least one item");'}
         format.html { render action: 'new' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :days
+  resources :days, only: [:create, :new, :show, :index]
   resources :orders, only: [:create]
   resources :carts, only: [:create, :destroy]
   devise_for :users
   get 'users/index'
+  get '/users/:id', to: 'users#show', as: 'user'
   get 'persons/profile', as: 'user_root'
   root 'welcome#index'
 

@@ -1,13 +1,7 @@
 class CartsController < ApplicationController
 
-  def show
-    @cart = Cart.find(params[:id])
-  end
-
-
   def create
     @cart = Cart.new(cart_params)
-
     respond_to do |format|
       if @cart.save
         format.html { redirect_to root_path }
@@ -27,11 +21,11 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
     respond_to do |format|
       format.html { redirect_to user_root_path }
-      format.js 
+      format.js
       format.json { head :no_content }
     end
   end
-  
+
   private
     def cart_params
       params[:cart]

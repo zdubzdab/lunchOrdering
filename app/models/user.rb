@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :drink_items, through: :orders
   has_many :days do
     def today
-      where(:created_at => (Time.zone.now.beginning_of_day..Time.zone.now))
+      where(created_at: (Time.zone.now.beginning_of_day..Time.zone.now))
     end
   end
 
@@ -17,6 +17,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def total_price_of_user_orders
+    total = [] << first_items.to_a.sum { |item| item.total_price }
+    total << second_items.to_a.sum { |item| item.total_price }
+    total << drink_items.to_a.sum { |item| item.total_price }
+    total.sum
+  end
 
   private
 

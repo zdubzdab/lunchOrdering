@@ -11,7 +11,7 @@ class FirstItem < ActiveRecord::Base
     first_course.price
   end
 
-  def pull_course_name
+  def pull_f_course_name
     first_course.name
   end
 

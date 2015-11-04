@@ -35,6 +35,7 @@ gem 'nested_form_fields'
 gem "jquery-turbolinks"#щоб нормально працював js(тільки заходиш на ст. js не працював треба було перезагружати)
 gem 'will_paginate'
 gem 'faker'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug'

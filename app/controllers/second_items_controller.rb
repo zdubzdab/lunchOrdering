@@ -1,6 +1,6 @@
 class SecondItemsController < ApplicationController
-include CurrentCart
-before_action :set_cart, only: [:create]
+  include CurrentCart
+  before_action :set_cart, only: [:create]
 
 def create
   second_course = SecondCourse.find(params[:second_course_id])

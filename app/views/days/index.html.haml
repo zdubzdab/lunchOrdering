@@ -5,7 +5,7 @@
 %p
   = link_to 'Edit my profile',  edit_user_registration_path
 %p
-  = link_to 'person', user_root_path
+  = link_to 'Сlient side', user_root_path
 
 .col-md-9#month_calendar_table
   %h3 Listing days
@@ -16,7 +16,7 @@
     - days.each do |day|
       %p
         = pluralize(day.orders.count, "order")
-      = link_to 'More details', day, class: "menu_link" 
+      = link_to 'More details', day, class: "menu_link"
 
 
 

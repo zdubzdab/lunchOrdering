@@ -1,0 +1,37 @@
+.col-md-3
+  %p
+    User name:
+    = @user.name
+  %p
+    User email:
+    = @user.email
+  %p
+    User registred at:
+    = @user.created_at.strftime('%x')
+  %p
+    Number of orders:
+    = @user.orders.count
+  %p
+    Total price of orders:
+    = number_to_currency(@user.total_price_of_user_orders)
+
+.col-md-8
+  -if @user.orders.any?
+    %h3 User orders
+    %table.table.table-bordered.table-condensed.table-striped
+      %tr
+        %th Date
+        %th First course
+        %th Second course
+        %th Drink
+        %th Price
+      - @orders.each do |order|
+        %tr
+          %td= order.created_at.strftime('%x')
+          %td= order.pull_first_course_name
+          %td= order.pull_second_course_name
+          %td= order.pull_drink_course_name
+          %td= number_to_currency(order.order_total_price)
+
+.col-md-9
+  = link_to "Back", :back
