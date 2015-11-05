@@ -11,6 +11,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  validates :name, presence: true,
+                    length: { minimum: 3 },
+                    uniqueness: true
+  validates :email, presence: true,
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
+                    message: "правильний формат emaila: xxx@xxx.xxx" } ,
+                    uniqueness: true
+
   Roles = [ :admin , :default ]
 
   # Include default devise modules. Others available are:

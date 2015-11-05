@@ -5,16 +5,16 @@
     - day.first_courses.each do |first_course|
       = render first_course
       - if day.starts_at.strftime("%d") == Time.now.strftime("%d")
-        = button_to 'Order', first_items_path(first_course_id: first_course), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+        = button_to 'Choose first course', first_items_path(first_course_id: first_course), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
   %b Second courses:
   %ol
     - day.second_courses.each do |second_course|
       = render second_course
       - if day.starts_at.strftime("%d") == Time.now.strftime("%d")
-        = button_to 'Order', second_items_path(second_course_id: second_course), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+        = button_to 'Choose second course', second_items_path(second_course_id: second_course), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
   %b Drinks:
   %ol
     - day.drinks.each do |drink|
       = render drink
       - if day.starts_at.strftime("%d") == Time.now.strftime("%d")
-        = button_to 'Order', drink_items_path(drink_id: drink), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+        = button_to 'Choose drink', drink_items_path(drink_id: drink), remote: true, class: "btn btn-warning", id: "b_add_to_cart"

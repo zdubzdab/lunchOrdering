@@ -13,7 +13,9 @@
     %br
     = link_to 'Edit my profile',  edit_user_registration_path
     %br
-    = link_to 'Admin side',  days_path
+    - if current_user.role == "admin"
+      = link_to 'Admin side',  days_path
+
 
 .col-md-2#square
   .col-md-1#small_square
