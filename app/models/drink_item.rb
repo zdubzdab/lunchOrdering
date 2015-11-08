@@ -15,6 +15,10 @@ class DrinkItem < ActiveRecord::Base
     drink.name
   end
 
+  def pull_d_course_created_at
+    drink.created_at.strftime("%d")
+  end
+
   private
     def order_should_has_one_drink_item
       if cart.drink_items.count >= 1

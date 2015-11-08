@@ -15,6 +15,10 @@ class SecondItem < ActiveRecord::Base
     second_course.name
   end
 
+  def pull_s_course_created_at
+    second_course.created_at.strftime("%d")
+  end
+
   private
     def order_should_has_one_second_item
       if cart.second_items.count >= 1

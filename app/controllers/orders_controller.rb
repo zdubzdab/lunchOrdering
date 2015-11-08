@@ -19,8 +19,8 @@ class OrdersController < ApplicationController
             'Thank you for your order.' }
         format.json { render action: 'show', status: :created, location: @order }
       else
-        format.js { render js: 'alert("Your order should has at least one item");'}
-        format.html { render action: 'new' }
+        format.js { render js: 'alert("Your order is empty or there are courses which are not in today menu");'}
+        format.html { render partial: "cart" }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
