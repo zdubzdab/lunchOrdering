@@ -1,0 +1,32 @@
+.calendar-header {
+  background: #FFFFFF;
+  font-size: 20px;
+}
+td.day.today.current-month{
+    background: #FFFF66;
+}
+td.day.past.prev-month{
+    background: #d9d9d9;
+}
+td.day.future.next-month{
+    background: #d9d9d9;
+}
+.showMore {
+  position:relative;
+    right: -30px;
+    top: 0px;
+  font-weight: normal;
+}
+.showLess {
+  display: none;
+  position:relative;
+    right: 0px;
+    top: 165px;
+  &:hover::after { 
+    content: attr(data-title); 
+  }
+}
+#b_add_to_cart {
+  position:relative;
+    top: -5px;
+}

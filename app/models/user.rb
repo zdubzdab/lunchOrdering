@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
                     uniqueness: true
   validates :email, presence: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
-                    message: "правильний формат emaila: xxx@xxx.xxx" } ,
+                    message: :bad_email_format } ,
                     uniqueness: true
 
   Roles = [ :admin , :default ]

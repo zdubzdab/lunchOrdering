@@ -3,11 +3,11 @@
   - if @day.errors.any?
     #error_explanation
       %h3
-        = pluralize(@day.errors.count, "error")
-        prohibited this day from being saved:
+        = t( :errors, count: @day.errors.count, model_day: t("model_day.Day"))
       %ul
         - @day.errors.full_messages.each do |msg|
           %li= msg
+
   #form_new_menu
     %h4#h_first_courses
       First courses

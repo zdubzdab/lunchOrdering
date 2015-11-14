@@ -6,7 +6,12 @@ class Ability
     if user.role == "admin"
       can :manage, :all
     else
-
+      can   :read, Day
+      can   :create, Order
+      can   :manage, Cart, user_id: user.id
+      can   :manage, FirstItem
+      can   :manage, SecondItem
+      can   :manage, DrinkItem
     end
   end
 end

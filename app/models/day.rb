@@ -31,7 +31,7 @@ class Day < ActiveRecord::Base
     total.sum
   end
 
-  private 
+  private
     def user_quota
       if user.days.today.count >= 1
         errors.add(:base, "You can create only one menu per day")

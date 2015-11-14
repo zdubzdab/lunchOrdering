@@ -18,3 +18,5 @@
       = render drink
       - if day.starts_at.strftime("%d") == Time.now.strftime("%d")
         = button_to 'Choose drink', drink_items_path(drink_id: drink), remote: true, class: "btn btn-warning", id: "b_add_to_cart"
+
+

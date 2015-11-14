@@ -1,8 +1,8 @@
 class SecondItem < ActiveRecord::Base
   belongs_to :second_course
   belongs_to :order
-  belongs_to :cart
   belongs_to :day
+  belongs_to :cart
   belongs_to :user
 
   validate :order_should_has_one_second_item, on: :create

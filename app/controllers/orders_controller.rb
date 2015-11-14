@@ -15,8 +15,8 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         format.js { }
-        format.html { redirect_to user_root_path, notice:
-            'Thank you for your order.' }
+        format.html { redirect_to user_root_path, notice: 'Thank you for your order.' }
+        # format.html { redirect_to user_root_path, notice: '.notice'}
         format.json { render action: 'show', status: :created, location: @order }
       else
         format.js { render js: 'alert("Your order is empty or there are courses which are not in today menu");'}

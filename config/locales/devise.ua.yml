@@ -1,0 +1,7 @@
+ua:
+  devise:
+  errors:
+    messages:
+      not_saved:
+        one: "Через одну помилку %{resource} не може бути збережений:"
+        other: "Через %{count} помилок %{resource} не може бути збережений:"

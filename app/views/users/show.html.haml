@@ -33,5 +33,11 @@
           %td= order.pull_drink_course_name
           %td= number_to_currency(order.order_total_price)
 
+.col-md-12
+  .pagination.pagination-centered
+    %ul
+      %li.active
+        %span= will_paginate @orders, renderer: FoundationPagination::Rails
+
 .col-md-9
   = link_to "Back", :back

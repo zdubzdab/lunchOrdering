@@ -4,8 +4,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def after_sign_in_path_for(resource)
-    current_user.role == "admin" ? days_path : user_root_path
+  include ApplicationHelper
+
+  before_action :set_locale
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 
   def after_sign_out_path_for(resource_or_scope)
@@ -13,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to user_root_path, :alert => "You don't have permission to do this"
+    redirect_to user_root_path, alert: "You don't have permission to do this"
   end
 
   protected

@@ -1,8 +1,8 @@
 class DrinkItem < ActiveRecord::Base
   belongs_to :drink
   belongs_to :order
-  belongs_to :cart
   belongs_to :day
+  belongs_to :cart
   belongs_to :user
 
   validate :order_should_has_one_drink_item, on: :create

@@ -1,8 +1,8 @@
 class FirstItem < ActiveRecord::Base
   belongs_to :first_course
-  belongs_to :cart
   belongs_to :order
   belongs_to :day
+  belongs_to :cart
   belongs_to :user
 
   validate :order_should_has_one_first_item, on: :create
@@ -19,9 +19,10 @@ class FirstItem < ActiveRecord::Base
     first_course.created_at.strftime("%d")
   end
 
-  private 
+  private
     def order_should_has_one_first_item
       if cart.first_items.count >= 1
+        # errors.add(:id, :some_custom_msg)
         errors.add(:base, "You can order only one first course")
       end
     end

@@ -13,7 +13,7 @@
     %td Total price
     %td.total_cell
     = number_to_currency(@day.total_price_of_today_menu)
- 
+
 .col-md-3#stats
   %h4#h_menu Days statistic
   %p
@@ -39,7 +39,13 @@
       %th Menu
       %th Order price
       %th Time
-    = render @day.orders
+    = render @orders
+
+.col-md-12
+  .pagination.pagination-centered
+    %ul
+      %li.active
+        %span= will_paginate @orders, renderer: FoundationPagination::Rails
 
 .col-md-12
   = link_to 'Back', days_path

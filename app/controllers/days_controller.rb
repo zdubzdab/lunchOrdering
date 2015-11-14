@@ -6,6 +6,7 @@ class DaysController < ApplicationController
   end
 
   def show
+    @orders = @day.orders.page(params[:page]).order("created_at DESC")
   end
 
   def new
@@ -22,7 +23,8 @@ class DaysController < ApplicationController
       if @day.save
         Cart.destroy_all
         format.js
-        format.html { redirect_to days_path, notice: 'Menu is sucessfully created.' }
+        # format.html { redirect_to days_path, notice: 'Menu is sucessfully created.' }
+        format.html { redirect_to days_path, notice: t('.notice') }
       else
         format.html { render :new }
         format.js
