@@ -17,4 +17,15 @@ module DaysHelper
     }
   end
 
+  def chomp_add (word)
+    word.to_s.chomp("s") + '_fields'
+  end
+
+  def chomp_add_path (word)
+    word.to_s.chomp("_course") + '_items_path'
+  end
+
+  def capitalize_for_header (word)
+    word.to_s.capitalize.gsub(/[_]/, " ") + ":"
+  end
 end

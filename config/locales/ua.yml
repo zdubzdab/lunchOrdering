@@ -16,12 +16,102 @@ ua:
         bad_price_format: "можуть бути лише цифри"
   model_day:
     Day: "Day"
-  # controllers:
+
+#cancan messages
+  unauthorized:
+    # default: "Default error message text."
+    manage:
+      all: "Ви не маєте доступу"
+
+  controllers:
   days:
     create:
-      notice: "Меню успішно створене."
-  # views:
+      sucessful: "Меню успішно створене."
+
+  views:
+  layouts:
+    header:
+      l_sign_out: 'Вийти'
+      l_log_in: 'Авторизуватись'
+  welcome:
+    index:
+      h_welcome: "Ласкаво просимо до 'LunchOrdering'"
+      b_home: 'Дім'
+      b_sign_out: 'Вийти'
+      b_log_in: 'Авторизуватись'
+      b_sign_up: 'Зареєструватись'
   persons:
     profile:
-      edit_profile: "Редагувати профіль"
-      admin_side: "Адмінська частина"
+      l_edit_profile: "Редагувати профіль"
+      l_admin_side: "Адмінська частина"
+  days:
+    day:
+      l_show_menu: "Показати меню"
+      t_first_courses: "Перші страви:"
+      t_second_courses: "Другі страви:"
+      t_drink_courses: "Напої:"
+      b_choose_first: "Вибрати перше"
+      b_choose_second: "Вибрати друге"
+      b_choose_drink: "Вибрати напій"
+    index:
+      l_create_menu: 'Створити меню'
+      l_users: 'Користувачі'
+      l_edit_my_profile: 'Редагувати профіль'
+      l_client_side: 'Клієнтська частина'
+      l_more_details: 'Детальніше'
+    show:
+      h_menu: "Меню"
+      t_f_courses: "Перші страви:"
+      t_s_courses: "Другі страви:"
+      t_d_courses: "Напої:"
+      t_total_price: "Ціна меню"
+      h_day_statistic: "Статистика дня:"
+      t_number_of_orders: "Кількість замовлень:"
+      t_price_of_orders: "Ціна замовлень:"
+      t_user_name: "Ім'я користувача"
+      t_user_email: "Емейл"
+      t_user_menu: "Замовлені страви"
+      t_order_price: "Ціна замовлення"
+      t_time: "Час замовлення"
+      l_back: "Назад"
+    form:
+      h_first_courses: "Перші страви:"
+      h_second_courses: "Другі страви:"
+      h_drink_courses: "Напої:"
+      l_add_first: "Додати першу страву"
+      l_add_second: "Додати другу страву"
+      l_add_drink: "Додати напій"
+      b_create_menu: "Створити меню"
+      l_back: 'Назад'
+    first_course_fields:
+      l_remove: "Видалити"
+    second_course_fields:
+      l_remove: "Видалити"
+    drink_fields:
+      l_remove: "Видалити"
+  carts:
+    cart:
+      h_your_menu: "Ваше меню"
+      b_order: "Замовити"
+      b_empty_menu: "Видалити усі страви"
+  users:
+    index:
+      t_user_name: "Ім'я користувача"
+      t_email: "Емейл"
+      t_number_of_orders: "Кількість замовлень"
+      t_registred: "Дата реєстрації"
+      t_show: "Показати"
+      l_show: "Показати"
+      l_back: "Назад"
+    show:
+      t_user_name: "Ім'я користувача:"
+      t_user_email: "Емейл:"
+      t_user_registred_at: "Дата реєстрації:"
+      t_number_of_orders: "Кількість замовлень:"
+      t_total_price: "Сума всіх замовлень:"
+      t_date: "Дата замовлення"
+      t_first: "Перша страва"
+      t_second: "Друга страва"
+      t_drink: "Напій"
+      t_price: "Ціна замовлення"
+      l_back: "Назад"

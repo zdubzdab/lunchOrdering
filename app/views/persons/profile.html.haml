@@ -2,14 +2,6 @@
   - if @cart
     %div#cart
       = render @cart
-      / - if @first_item.errors.any?
-      /   #error_explanation
-      /     %h3
-      /       = pluralize(@first_item.errors.count, "error")
-      /       prohibited this day from being saved:
-      /     %ul
-      /       - @first_item.errors.full_messages.each do |msg|
-      /         %li= msg
 
 .col-md-4#profile
   %h3
@@ -19,12 +11,14 @@
     email:
     = current_user.email
     %br
-    / = link_to 'Edit my profile',  edit_user_registration_path
-    = link_to t('.edit_profile'),  edit_user_registration_path
+    = link_to t('.l_edit_profile'),  edit_user_registration_path
     %br
     - if current_user.role == "admin"
-      = link_to t('.admin_side'),  days_path
+      = link_to t('.l_admin_side'),  days_path
 
+  .col-md-10#first_item_error
+    %b
+      You can order only one first course
 
 .col-md-2#square
   .col-md-1#small_square
@@ -45,6 +39,15 @@
     - days.each do |day|
       = render day
 
+
+- if @first_item.errors.any?
+  #error_explanation
+    %h3
+      = pluralize(@first_item.errors.count, "error")
+      prohibited this course from being saved:
+    %ul
+      - @first_item.errors.full_messages.each do |msg|
+        %li= msg
 
 
 

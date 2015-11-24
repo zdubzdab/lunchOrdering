@@ -44,6 +44,7 @@ Spork.prefork do
     config.order = "random"
     config.include Capybara::DSL
     Capybara.javascript_driver = :webkit
+    config.include ApplicationHelper
   end
 end
 

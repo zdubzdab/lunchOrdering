@@ -14,7 +14,6 @@ class FirstItemsController < ApplicationController
             status: :created, location: @first_item }
       else
         format.html { render action: 'new' }
-        # format.js { render js: @first_item.errors }
         format.js { render js: 'alert("You can order only one first course");' }
         format.json { render json: @first_item.errors, status: :unprocessable_entity }
       end

@@ -10,31 +10,42 @@
 
   #form_new_menu
     %h4#h_first_courses
-      First courses
+      = t '.h_first_courses'
     %h4#h_second_courses
-      Second courses
+      = t '.h_second_courses'
     %h4#h_drinks
-      Drinks
+      = t '.h_drink_courses'
+    / .col-md-4
+    /   .course
+    /     = f.hidden_field :starts_at, value: DateTime.now
+    /     - [:first_courses, :second_courses, :drinks].each do |courses|
+    /       - f.fields_for courses do |course_form|
+    /         = render '#{chomp_add(courses)}', f: course_form
+    /         %p
+    /           = chomp_add(courses)
+    /         = link_to_add_fields "Add first course", f, :courses
     .col-md-4
       .course
         = f.hidden_field :starts_at, value: DateTime.now
         = f.fields_for :first_courses do |first_courses_form|
           = render 'first_course_fields', f: first_courses_form
-          = link_to_add_fields "Add first course", f, :first_courses
+          = link_to_add_fields t('.l_add_first'), f, :first_courses
     .col-md-4
       .course
         = f.fields_for :second_courses do |second_courses_form|
           = render 'second_course_fields', f: second_courses_form
-          = link_to_add_fields "Add second course", f, :second_courses
+          = link_to_add_fields t('.l_add_second'), f, :second_courses
     .col-md-4
       .course
         = f.fields_for :drinks do |drinks_form|
           = render 'drink_fields', f: drinks_form
-          = link_to_add_fields "Add drink", f, :drinks
+          = link_to_add_fields t('.l_add_drink'), f, :drinks
 
-      = f.submit "Create menu", class: "btn btn-warning", id: "b_create_menu"
+
+      = f.submit t('.b_create_menu'), class: "btn btn-warning", id: "b_create_menu"
     .col-md-12
-      = link_to 'Back', days_path
+      = link_to t('.l_back'), days_path
+
 
 
 

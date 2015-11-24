@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   validates :name, presence: true,
-                    length: { minimum: 3 },
+                    length: { minimum: 2 },
                     uniqueness: true
   validates :email, presence: true,
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,

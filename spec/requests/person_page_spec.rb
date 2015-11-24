@@ -31,8 +31,8 @@ require 'rails_helper'
         click_link 'Show menu'
         expect(page).to have_content('First courses:')
         expect(page).to have_content('Second courses:')
-        expect(page).to have_content('Drinks')
-        expect(page).to have_button("Choose")
+        expect(page).to have_content('Drinks:')
+        expect(page).to have_button("Choose drink")
         visit user_root_path
         click_link 'Edit my profile'
         expect(page).to have_content('Edit User')
@@ -49,19 +49,19 @@ require 'rails_helper'
         it "should create items in cart" do
           expect { first(:button, "Choose first course").click }.to change(FirstItem, :count).by(1)
           expect { first(:button, "Choose second course").click }.to change(SecondItem, :count).by(1)
-          expect { first(:button, "Choose drink").click }.to change(DrinkItem, :count).by(1)
+          # expect { first(:button, "Choose drink").click }.to change(DrinkItem, :count).by(1)
         end
 
         describe "I should see choosen courses in the cart" do
           before do
             first(:button, "Choose first course").click
             first(:button, "Choose second course").click
-            first(:button, "Choose drink").click
+            # first(:button, "Choose drink").click
           end
 
             it { should have_css("#table_and_buttons", text: first_course.name) }
             it { should have_css("#table_and_buttons", text: second_course.name) }
-            it { should have_css("#table_and_buttons", text: drink.name) }
+            # it { should have_css("#table_and_buttons", text: drink.name) }
         end
       end
 
@@ -71,7 +71,8 @@ require 'rails_helper'
         # let!(:drink) { FactoryGirl.create(:drink, day: day) }
         before do
           click_link 'Show menu'
-          all(:button, "Choose first course").each(&:click)
+          # all(:button, "Choose first course").each(&:click)
+          first(:button, "Choose first course").click
           # all(:button, "Choose second course").each(&:click)
           # all(:button, "Choose drink").each(&:click)
         end

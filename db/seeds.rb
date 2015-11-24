@@ -1,19 +1,19 @@
-# User.delete_all
-# User.create!(name: "admin",
-#              email: "a@a.a",
-#              role: "admin",
-#              password: "aaaaaaaa",
-#              password_confirmation: "aaaaaaaa")
+User.delete_all
+User.create!(name: "admin",
+             email: "a@a.a",
+             role: "admin",
+             password: "password",
+             password_confirmation: "password")
 
-# 5.times do |n|
-#   name  = Faker::Name.name
-#   email = "mail#{n+1}@gmai.org"
-#   password  = "password"
-#   User.create!(name: name,
-#                email: email,
-#                password: password,
-#                password_confirmation: password)
-# end
+5.times do |n|
+  name  = Faker::Name.name
+  email = "mail#{n+1}@gmai.org"
+  password  = "password"
+  User.create!(name: name,
+               email: email,
+               password: password,
+               password_confirmation: password)
+end
 
 # Day.delete_all
 # Day.create!(
@@ -81,26 +81,30 @@
 #     DrinkItem.create!(order_id: k.id, drink_id: value )
 # end
 
-
 Day.create!(
   user_id: User.first.id,
   starts_at: Time.now)
 
 2.times do
-  name =  Faker::Lorem.word
-  price = Faker::Number.decimal(1, 2)
-  FirstCourse.create!(day_id: Day.last.id, name: name, price: price )
+  first_course_name =  Faker::Lorem.word
+  first_course_price = Faker::Number.decimal(1, 2)
+  second_course_name =  Faker::Lorem.word
+  second_course_price = Faker::Number.decimal(1, 2)
+  drink_name =  Faker::Lorem.word
+  drink_price = Faker::Number.decimal(1, 2)
+  FirstCourse.create!(day_id: Day.last.id, name: first_course_name, price: first_course_price )
+  SecondCourse.create!(day_id: Day.last.id, name: second_course_name, price: second_course_price )
+  Drink.create!(day_id: Day.last.id, name: drink_name, price: drink_price )
 end
 
-2.times do
-  name =  Faker::Lorem.word
-  price = Faker::Number.decimal(1, 2)
-  SecondCourse.create!(day_id: Day.last.id, name: name, price: price )
-end
+# FirstItem.create!(
+#   cart_id: 128,
+#   first_course_id: 236)
 
-2.times do
-  name =  Faker::Lorem.word
-  price = Faker::Number.decimal(1, 2)
-  Drink.create!(day_id: Day.last.id, name: name, price: price )
-end
+# SecondItem.create!(
+#   cart_id: 128,
+#   second_course_id: 213)
 
+# DrinkItem.create!(
+#   cart_id: 128,
+#   drink_id: 213)

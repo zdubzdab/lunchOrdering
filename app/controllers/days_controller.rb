@@ -1,15 +1,20 @@
 class DaysController < ApplicationController
-  load_and_authorize_resource except: :create
+  # load_and_authorize_resource except: :create
+  before_action :authenticate_user!#devise
 
   def index
+    authorize! :index, @day
     @days = Day.all
   end
 
   def show
+    authorize! :show, @day
+    @day= Day.find(params[:id])
     @orders = @day.orders.page(params[:page]).order("created_at DESC")
   end
 
   def new
+    authorize! :new, @day
     @day = Day.new
     @day.first_courses.build
     @day.second_courses.build
@@ -17,14 +22,14 @@ class DaysController < ApplicationController
   end
 
   def create
+    authorize! :create, @day
     @day = Day.new(day_params)
     @day.user = current_user
     respond_to do |format|
       if @day.save
         Cart.destroy_all
         format.js
-        # format.html { redirect_to days_path, notice: 'Menu is sucessfully created.' }
-        format.html { redirect_to days_path, notice: t('.notice') }
+        format.html { redirect_to days_path, notice: t('.sucessful') }
       else
         format.html { render :new }
         format.js

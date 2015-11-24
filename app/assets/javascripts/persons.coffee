@@ -8,3 +8,4 @@ $ ->
     $(".menu").toggle();
     $(".showMore").hide();
     $(".showLess").show();
+

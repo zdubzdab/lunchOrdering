@@ -17,13 +17,126 @@ en:
   model_day:
     Day: "Day"
 
-  # controllers:
+#cancan messages
+  unauthorized:
+    # default: "Default error message text."
+    manage:
+      all: "Not authorized to %{action} %{subject}."
+
+  controllers:
   days:
     create:
-      notice: "Menu is sucessfully created."
-  # views:
+      sucessful: "Menu is sucessfully created."
+
+  views:
+  layouts:
+    header:
+      l_sign_out: 'Sign out'
+      l_log_in: 'Log in'
+  welcome:
+    index:
+      h_welcome: "Welcome to 'LunchOrdering'"
+      b_home: 'Home'
+      b_sign_out: 'Sign out'
+      b_log_in: 'Log in'
+      b_sign_up: 'Sign up'
   persons:
     profile:
-      edit_profile: "Edit profile"
-      admin_side: "Admin side"
+      l_edit_profile: "Edit profile"
+      l_admin_side: "Admin side"
+  days:
+    day:
+      l_show_menu: "Show menu"
+      t_first_courses: "First courses:"
+      t_second_courses: "Second courses:"
+      t_drink_courses: "Drinks:"
+      b_choose_first: "Choose first course"
+      b_choose_second: "Choose second course"
+      b_choose_drink: "Choose drink"
+    index:
+      l_create_menu: 'Create menu'
+      l_users: 'Users'
+      l_edit_my_profile: 'Edit my profile'
+      l_client_side: 'Сlient side'
+      l_more_details: 'More details'
+    show:
+      h_menu: "Menu"
+      t_f_courses: "First courses:"
+      t_s_courses: "Second courses:"
+      t_d_courses: "Drinks:"
+      t_total_price: "Total price"
+      h_day_statistic: "Days statistic:"
+      t_number_of_orders: "Number of orders:"
+      t_price_of_orders: "Price of orders:"
+      t_user_name: "User name"
+      t_user_email: "User email"
+      t_user_menu: "Menu"
+      t_order_price: "Order price"
+      t_time: "Time"
+      l_back: "Back"
+    form:
+      h_first_courses: "First courses:"
+      h_second_courses: "Second courses:"
+      h_drink_courses: "Drinks:"
+      l_add_first: "Add first course"
+      l_add_second: "Add second course"
+      l_add_drink: "Add drink"
+      b_create_menu: "Create menu"
+      l_back: 'Back'
+    first_course_fields:
+      l_remove: "Remove"
+      second_course_fields:
+      l_remove: "Remove"
+      drink_fields:
+      l_remove: "Remove"
+  carts:
+    cart:
+      h_your_menu: "Your Menu"
+      b_order: "Order"
+      b_empty_menu: "Empty menu"
+  users:
+    index:
+      t_user_name: "Name"
+      t_email: "Email"
+      t_number_of_orders: "Number of orders"
+      t_registred: "Registred"
+      t_show: "Show"
+      l_show: "Show"
+      l_back: "Back"
+    show:
+      t_user_name: "User name:"
+      t_user_email: "User email:"
+      t_user_registred_at: "User registred at:"
+      t_number_of_orders: "Number of orders:"
+      t_total_price: "Total price of orders:"
+      t_date: "Date"
+      t_first: "First course"
+      t_second: "Second course"
+      t_drink: "Drink"
+      t_price: "Price"
+      l_back: "Back"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

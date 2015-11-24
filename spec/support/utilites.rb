@@ -11,3 +11,4 @@ def valid_signin_user(user)
   fill_in "Password", with: user.password
   click_button "Log in"
 end
+

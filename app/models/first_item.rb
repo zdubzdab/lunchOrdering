@@ -22,7 +22,6 @@ class FirstItem < ActiveRecord::Base
   private
     def order_should_has_one_first_item
       if cart.first_items.count >= 1
-        # errors.add(:id, :some_custom_msg)
         errors.add(:base, "You can order only one first course")
       end
     end

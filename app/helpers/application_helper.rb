@@ -1,7 +1,15 @@
 module ApplicationHelper
 
-  def after_sign_in_path_for(resource)
-    current_user.role == "admin" ? days_path : user_root_path
+  # def after_sign_in_path_for(resource)
+  #   current_user.role == "admin" ? days_path : user_root_path
+  # end
+
+  # def after_sign_out_path_for(resource_or_scope)
+  #   root_path
+  # end
+
+  def price_to_dolar (price)
+    sprintf("$%0.02f", price)
   end
 
   def link_to_remove_fields(name, f)

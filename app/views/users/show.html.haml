@@ -1,18 +1,18 @@
 .col-md-3
   %p
-    User name:
+    = t '.t_user_name'
     = @user.name
   %p
-    User email:
+    = t '.t_user_email'
     = @user.email
   %p
-    User registred at:
+    = t '.t_user_registred_at'
     = @user.created_at.strftime('%x')
   %p
-    Number of orders:
+    = t '.t_number_of_orders'
     = @user.orders.count
   %p
-    Total price of orders:
+    = t '.t_total_price'
     = number_to_currency(@user.total_price_of_user_orders)
 
 .col-md-8
@@ -20,11 +20,16 @@
     %h3 User orders
     %table.table.table-bordered.table-condensed.table-striped
       %tr
-        %th Date
-        %th First course
-        %th Second course
-        %th Drink
-        %th Price
+        %th
+          = t '.t_date'
+        %th
+          = t '.t_first'
+        %th
+          = t '.t_second'
+        %th
+          = t '.t_drink'
+        %th
+          = t '.t_price'
       - @orders.each do |order|
         %tr
           %td= order.created_at.strftime('%x')
@@ -40,4 +45,4 @@
         %span= will_paginate @orders, renderer: FoundationPagination::Rails
 
 .col-md-9
-  = link_to "Back", :back
+  = link_to t('.l_back'), :back

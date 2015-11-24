@@ -42,12 +42,12 @@ class Order < ActiveRecord::Base
     total.join.gsub(/[0]/, '-')
   end
 
- def pull_second_course_name
+  def pull_second_course_name
     total = [] << second_items.to_a.sum { |item| item.pull_s_course_name }
     total.join.gsub(/[0]/, '-')
   end
 
-   def pull_drink_course_name
+  def pull_drink_course_name
     total = [] << drink_items.to_a.sum { |item| item.pull_d_course_name }
     total.join.gsub(/[0]/, '-')
   end
@@ -63,18 +63,16 @@ class Order < ActiveRecord::Base
       f = first_items.to_a.sum { |item| item.pull_f_course_created_at }
       s = second_items.to_a.sum { |item| item.pull_s_course_created_at }
       d = drink_items.to_a.sum { |item| item.pull_d_course_created_at }
-      if f.blank?
-        f = Time.now.strftime("%d")
-        if s.blank?
-          s = Time.now.strftime("%d")
-          if d.blank?
-            d = Time.now.strftime("%d")
-            if f != Time.now.strftime("%d") || s != Time.now.strftime("%d") || d != Time.now.strftime("%d")
-                errors.add(:base, "")
-            end
-          end
+
+      [:f, :s, :d].each do |letter|
+        if letter.blank?
+          letter = Time.now.strftime("%d")
         end
       end
-    end
 
+      if f != Time.now.strftime("%d") || s != Time.now.strftime("%d") || d != Time.now.strftime("%d")
+        errors.add(:base, "")
+      end
+    end
 end
+

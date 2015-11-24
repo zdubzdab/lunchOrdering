@@ -1,26 +1,32 @@
 .col-md-3#menu_panel
-  %h4#h_menu Menu
-  %b First courses
+  %h4#h_menu
+    = t '.h_menu'
+  %b
+    = t '.t_f_courses'
   %ol
     = render @day.first_courses
-  %b Second courses
+  %b
+    = t '.t_s_courses'
   %ol
     = render @day.second_courses
-  %b Drinks
+  %b
+    = t '.t_d_courses'
   %ol
     = render @day.drinks
   %tr.total_line
-    %td Total price
+    %td
+      = t '.t_total_price'
     %td.total_cell
     = number_to_currency(@day.total_price_of_today_menu)
 
 .col-md-3#stats
-  %h4#h_menu Days statistic
+  %h4#h_menu
+    = t '.h_day_statistic'
   %p
-    Number of orders:
+    = t '.t_number_of_orders'
     = @day.orders.count
   %p
-    Price of orders:
+    = t '.t_price_of_orders'
     = number_to_currency(@day.total_price_of_day_orders)
 
 .col-md-2#square_a
@@ -34,11 +40,16 @@
   %h3 Listing Orders
   %table.table.table-bordered.table-condensed.table-striped
     %tr
-      %th User name
-      %th User email
-      %th Menu
-      %th Order price
-      %th Time
+      %th
+        = t '.t_user_name'
+      %th
+        = t '.t_user_email'
+      %th
+        = t '.t_user_menu'
+      %th
+        = t '.t_order_price'
+      %th
+        = t '.t_time'
     = render @orders
 
 .col-md-12
@@ -48,4 +59,4 @@
         %span= will_paginate @orders, renderer: FoundationPagination::Rails
 
 .col-md-12
-  = link_to 'Back', days_path
+  = link_to t('.l_back'), days_path

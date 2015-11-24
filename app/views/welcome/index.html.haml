@@ -1,10 +1,9 @@
-- if user_signed_in?
-  %h1.welcome
-    Welcome to "LunchOrdering"
-    = button_to 'Home', user_session_path, class: "button", id: "log_in", method: :get
-    = button_to 'Sign out', destroy_user_session_path, class: "button", id: "sign_up", method: :delete
-- else
-  %h1.welcome 
-    Welcome to "LunchOrdering" 
-    = button_to 'Log in', new_user_session_path, class: "button", id: "log_in", method: :get
-    = button_to 'Sign up', new_user_registration_path, class: "button", id: "sign_up", method: :get
+%h1.welcome
+  = t '.h_welcome'
+  - if user_signed_in?
+    = button_to t('.b_home'), user_session_path, class: "button", id: "log_in", method: :get
+    = button_to t('.b_sign_out'), destroy_user_session_path, class: "button", id: "sign_up", method: :delete
+  - else
+    = button_to t('.b_log_in'), new_user_session_path, class: "button", id: "log_in", method: :get
+    = button_to t('.b_sign_up'), new_user_registration_path, class: "button", id: "sign_up", method: :get
+

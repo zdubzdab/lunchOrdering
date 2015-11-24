@@ -2,5 +2,5 @@
   = second_course.name
   %p
     price:
-    = sprintf("$%0.02f", second_course.price)
+    = price_to_dolar(second_course.price)
     %br

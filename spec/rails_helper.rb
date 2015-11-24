@@ -49,4 +49,5 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include Capybara::DSL
+  config.include ApplicationHelper
 end

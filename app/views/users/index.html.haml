@@ -2,18 +2,23 @@
   %h3 Listing Users
   %table.table.table-bordered.table-condensed.table-striped
     %tr
-      %th Name
-      %th Email
-      %th Number of orders
-      %th Registred
-      %th Show
+      %th 
+        = t '.t_user_name'
+      %th 
+        = t '.t_email'
+      %th 
+        = t '.t_number_of_orders'
+      %th 
+        = t '.t_registred'
+      %th 
+        = t '.t_show'
     - @users.each do |user|
       %tr
         %td= user.name
         %td= user.email
         %td= user.orders.count
         %td= user.created_at.strftime('%x')
-        %td= link_to 'Show', user_path(user)
+        %td= link_to t('.l_show'), user_path(user)
 
 .col-md-10
   .pagination.pagination-centered
@@ -22,4 +27,4 @@
         %span= will_paginate @users, renderer: FoundationPagination::Rails
 
 .col-md-9
-  = link_to 'Back', days_path
+  = link_to t('.l_back'), days_path
