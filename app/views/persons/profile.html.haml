@@ -1,7 +1,27 @@
 .col-md-4#side
-  - if @cart
-    %div#cart
-      = render @cart
+  #table_and_buttons
+    %h4
+      = t '.h_your_menu'
+    %table.cart_table
+      %td
+        %tr
+          - if @first_course
+            = @first_course.name
+            = price_to_dolar_insert(@first_course.price)
+            %br
+          - if @second_course
+            = @second_course.name
+            = price_to_dolar_insert(@second_course.price)
+            %br
+          - if @drink
+            = @drink.name
+            = price_to_dolar_insert(@drink.price)
+
+      %tr.total_line
+        %td Total
+        %td.total_cell
+          = total_price(@first_course, @second_course, @drink)
+    = show_desired_button(@first_course, @second_course, @drink)
 
 .col-md-4#profile
   %h3
@@ -16,9 +36,8 @@
     - if current_user.role == "admin"
       = link_to t('.l_admin_side'),  days_path
 
-  .col-md-10#first_item_error
-    %b
-      You can order only one first course
+    %br
+    = link_to "persons profile",  user_root_path
 
 .col-md-2#square
   .col-md-1#small_square
@@ -38,23 +57,5 @@
       = date.strftime("%d")
     - days.each do |day|
       = render day
-
-
-- if @first_item.errors.any?
-  #error_explanation
-    %h3
-      = pluralize(@first_item.errors.count, "error")
-      prohibited this course from being saved:
-    %ul
-      - @first_item.errors.full_messages.each do |msg|
-        %li= msg
-
-
-
-
-
-
-
-
 
 

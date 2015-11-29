@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   before_save :check_to_make_admin
 
   has_many :orders
+    has_many :first_courses, through: :orders
+    has_many :second_courses, through: :orders
+    has_many :drinks, through: :orders
   has_many :first_items, through: :orders
   has_many :second_items, through: :orders
   has_many :drink_items, through: :orders

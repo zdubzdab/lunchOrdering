@@ -8,6 +8,10 @@ module ApplicationHelper
   #   root_path
   # end
 
+  def price_to_dolar_insert (price)
+    sprintf("$%0.02f", price).insert(0, '- ')
+  end
+
   def price_to_dolar (price)
     sprintf("$%0.02f", price)
   end

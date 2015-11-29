@@ -1,19 +1,19 @@
-User.delete_all
-User.create!(name: "admin",
-             email: "a@a.a",
-             role: "admin",
-             password: "password",
-             password_confirmation: "password")
+# User.delete_all
+# User.create!(name: "admin",
+#              email: "a@a.a",
+#              role: "admin",
+#              password: "password",
+#              password_confirmation: "password")
 
-5.times do |n|
-  name  = Faker::Name.name
-  email = "mail#{n+1}@gmai.org"
-  password  = "password"
-  User.create!(name: name,
-               email: email,
-               password: password,
-               password_confirmation: password)
-end
+# 5.times do |n|
+#   name  = Faker::Name.name
+#   email = "mail#{n+1}@gmai.org"
+#   password  = "password"
+#   User.create!(name: name,
+#                email: email,
+#                password: password,
+#                password_confirmation: password)
+# end
 
 # Day.delete_all
 # Day.create!(
@@ -97,14 +97,3 @@ Day.create!(
   Drink.create!(day_id: Day.last.id, name: drink_name, price: drink_price )
 end
 
-# FirstItem.create!(
-#   cart_id: 128,
-#   first_course_id: 236)
-
-# SecondItem.create!(
-#   cart_id: 128,
-#   second_course_id: 213)
-
-# DrinkItem.create!(
-#   cart_id: 128,
-#   drink_id: 213)

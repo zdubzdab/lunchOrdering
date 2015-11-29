@@ -23,12 +23,7 @@ en:
     manage:
       all: "Not authorized to %{action} %{subject}."
 
-  controllers:
-  days:
-    create:
-      sucessful: "Menu is sucessfully created."
-
-  views:
+  # views:
   layouts:
     header:
       l_sign_out: 'Sign out'
@@ -85,10 +80,13 @@ en:
       l_back: 'Back'
     first_course_fields:
       l_remove: "Remove"
-      second_course_fields:
+    second_course_fields:
       l_remove: "Remove"
-      drink_fields:
+    drink_fields:
       l_remove: "Remove"
+  # controllers:
+    create:
+      sucessful: "Menu is sucessfully created."
   carts:
     cart:
       h_your_menu: "Your Menu"

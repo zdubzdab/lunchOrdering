@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150827134904) do
+ActiveRecord::Schema.define(version: 20151128095739) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20150827134904) do
   add_index "carts", ["user_id"], name: "index_carts_on_user_id"
 
   create_table "days", force: :cascade do |t|
-    t.string   "name"
     t.datetime "starts_at"
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -49,9 +48,11 @@ ActiveRecord::Schema.define(version: 20150827134904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "day_id"
+    t.integer  "user_id"
   end
 
   add_index "drinks", ["day_id"], name: "index_drinks_on_day_id"
+  add_index "drinks", ["user_id"], name: "index_drinks_on_user_id"
 
   create_table "first_courses", force: :cascade do |t|
     t.string   "name"
@@ -59,9 +60,11 @@ ActiveRecord::Schema.define(version: 20150827134904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "day_id"
+    t.integer  "user_id"
   end
 
   add_index "first_courses", ["day_id"], name: "index_first_courses_on_day_id"
+  add_index "first_courses", ["user_id"], name: "index_first_courses_on_user_id"
 
   create_table "first_items", force: :cascade do |t|
     t.integer  "first_course_id"
@@ -78,11 +81,17 @@ ActiveRecord::Schema.define(version: 20150827134904) do
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "day_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "first_course_id"
+    t.integer  "second_course_id"
+    t.integer  "drink_id"
   end
 
   add_index "orders", ["day_id"], name: "index_orders_on_day_id"
+  add_index "orders", ["drink_id"], name: "index_orders_on_drink_id"
+  add_index "orders", ["first_course_id"], name: "index_orders_on_first_course_id"
+  add_index "orders", ["second_course_id"], name: "index_orders_on_second_course_id"
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "second_courses", force: :cascade do |t|
@@ -91,9 +100,11 @@ ActiveRecord::Schema.define(version: 20150827134904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "day_id"
+    t.integer  "user_id"
   end
 
   add_index "second_courses", ["day_id"], name: "index_second_courses_on_day_id"
+  add_index "second_courses", ["user_id"], name: "index_second_courses_on_user_id"
 
   create_table "second_items", force: :cascade do |t|
     t.integer  "second_course_id"

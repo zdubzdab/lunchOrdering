@@ -5,14 +5,25 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @day = Day.last
-    @order = @day.orders.build(user: current_user)
-    @order.add_items_from_cart(@cart)
+    day = Day.last
+    if params[:first_course_id].present?
+      first_course = FirstCourse.find(params[:first_course_id])
+    end
+    if params[:second_course_id].present?
+      second_course = SecondCourse.find(params[:second_course_id])
+    end
+    if params[:drink_id].present?
+      drink = Drink.find(params[:drink_id])
+    end
+
+    @order = Order.create(day_id: day.id, user: current_user, first_course_id: first_course.id,
+                           second_course_id: second_course.id, drink_id: drink.id)
 
     respond_to do |format|
       if @order.save
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil
+        session[:first_course_id] = nil
+        session[:second_course_id] = nil
+        session[:drink_id] = nil
         format.js { }
         format.html { redirect_to user_root_path, notice: 'Thank you for your order.' }
         # format.html { redirect_to user_root_path, notice: '.notice'}

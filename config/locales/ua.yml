@@ -23,12 +23,7 @@ ua:
     manage:
       all: "Ви не маєте доступу"
 
-  controllers:
-  days:
-    create:
-      sucessful: "Меню успішно створене."
-
-  views:
+  # views:
   layouts:
     header:
       l_sign_out: 'Вийти'
@@ -89,6 +84,9 @@ ua:
       l_remove: "Видалити"
     drink_fields:
       l_remove: "Видалити"
+  # controllers:
+    create:
+      sucessful: "Меню успішно створене."
   carts:
     cart:
       h_your_menu: "Ваше меню"

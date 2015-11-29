@@ -9,7 +9,7 @@ class DaysController < ApplicationController
 
   def show
     authorize! :show, @day
-    @day= Day.find(params[:id])
+    @day = Day.find(params[:id])
     @orders = @day.orders.page(params[:page]).order("created_at DESC")
   end
 
